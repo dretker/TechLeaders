@@ -1,48 +1,44 @@
 //
-//  HomeViewController.swift
+//  AddViewController.swift
 //  CardWallet
 //
-//  Created by Ania Kuliś on 18.12.2017.
+//  Created by Ania Kuliś on 21.12.2017.
 //  Copyright © 2017 Ania Kulis. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class AddViewController: UIViewController {
 
-    
- //   @IBOutlet weak var table: UITableView!
-    
-  //  var cards : [String] = [""]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-   //     table.tableFooterView = UIView(frame: CGRect.zero)
 
         // Do any additional setup after loading the view.
     }
 
-
-    
-/*
-    func insertCard(){
-        cards.append(newCard.text!)
-        let index = IndexPath(row:cards.count-1, section:0)
-        table.beginUpdates()
-        table.insertRows(at: [indexPath], with: .automatic)
-        table.endUpdates()
-        
-        newCard.text = ""
-        view.endEditing(true)
-        
-    } */
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+/*
+    @IBOutlet weak var cardName: UITextField!
+    @IBOutlet weak var cardNr: UITextField!
+    @IBOutlet weak var addButton: UIButton!
+ 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        var secondVC = segue.destination as! HomeViewController
+        secondVC.cards.append(cardName.text!)
+    }
     
-
+    
+    @IBAction func addCardfunc(_ sender: Any) {
+        
+        if(cardName.text != "" && cardNr.text != ""){
+            performSegue(withIdentifier: "segue", sender: self)
+        }
+    }*/
+    
+    
     /*
     // MARK: - Navigation
 
