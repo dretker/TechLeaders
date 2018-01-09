@@ -66,6 +66,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3700C0382005674100F58DFD /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				857F93951FE2C00100857762 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		3700C0392005674C00F58DFD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				857F939C1FE2C00100857762 /* Assets.xcassets */,
+				857F93A11FE2C00100857762 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3700C03A2005675800F58DFD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				857F939E1FE2C00100857762 /* LaunchScreen.storyboard */,
+				857F93991FE2C00100857762 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		3700C03B2005676300F58DFD /* UIViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8525162A1FE825890088416F /* RegisterViewController.swift */,
+				8525162C1FE8416F0088416F /* LoginViewController.swift */,
+				8525162E1FE841F30088416F /* HomeViewController.swift */,
+				8569600B1FEBFD56007E4A7F /* AddViewController.swift */,
+				8569600D1FEBFD67007E4A7F /* CardViewController.swift */,
+				370CF818200563EA00190259 /* CardsTableViewController.swift */,
+			);
+			path = UIViewControllers;
+			sourceTree = "<group>";
+		};
 		857F93891FE2C00100857762 = {
 			isa = PBXGroup;
 			children = (
@@ -87,17 +126,10 @@
 		857F93941FE2C00100857762 /* CardWallet */ = {
 			isa = PBXGroup;
 			children = (
-				857F93951FE2C00100857762 /* AppDelegate.swift */,
-				857F939C1FE2C00100857762 /* Assets.xcassets */,
-				857F93A11FE2C00100857762 /* Info.plist */,
-				857F939E1FE2C00100857762 /* LaunchScreen.storyboard */,
-				857F93991FE2C00100857762 /* Main.storyboard */,
-				8525162A1FE825890088416F /* RegisterViewController.swift */,
-				8525162C1FE8416F0088416F /* LoginViewController.swift */,
-				8525162E1FE841F30088416F /* HomeViewController.swift */,
-				8569600B1FEBFD56007E4A7F /* AddViewController.swift */,
-				8569600D1FEBFD67007E4A7F /* CardViewController.swift */,
-				370CF818200563EA00190259 /* CardsTableViewController.swift */,
+				3700C0382005674100F58DFD /* AppDelegate */,
+				3700C03A2005675800F58DFD /* Storyboards */,
+				3700C0392005674C00F58DFD /* Resources */,
+				3700C03B2005676300F58DFD /* UIViewControllers */,
 			);
 			path = CardWallet;
 			sourceTree = "<group>";
