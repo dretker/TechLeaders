@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370CF819200563EA00190259 /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370CF818200563EA00190259 /* CardsTableViewController.swift */; };
 		8525162B1FE825890088416F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525162A1FE825890088416F /* RegisterViewController.swift */; };
 		8525162D1FE8416F0088416F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525162C1FE8416F0088416F /* LoginViewController.swift */; };
 		8525162F1FE841F30088416F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525162E1FE841F30088416F /* HomeViewController.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		370CF818200563EA00190259 /* CardsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewController.swift; sourceTree = "<group>"; };
 		8525162A1FE825890088416F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8525162C1FE8416F0088416F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8525162E1FE841F30088416F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				8525162E1FE841F30088416F /* HomeViewController.swift */,
 				8569600B1FEBFD56007E4A7F /* AddViewController.swift */,
 				8569600D1FEBFD67007E4A7F /* CardViewController.swift */,
+				370CF818200563EA00190259 /* CardsTableViewController.swift */,
 			);
 			path = CardWallet;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				8525162F1FE841F30088416F /* HomeViewController.swift in Sources */,
 				8569600E1FEBFD67007E4A7F /* CardViewController.swift in Sources */,
 				8525162D1FE8416F0088416F /* LoginViewController.swift in Sources */,
+				370CF819200563EA00190259 /* CardsTableViewController.swift in Sources */,
 				8525162B1FE825890088416F /* RegisterViewController.swift in Sources */,
 				857F93961FE2C00100857762 /* AppDelegate.swift in Sources */,
 			);

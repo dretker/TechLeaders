@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardWalletlogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="0pA-Me-qhM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0pA-Me-qhM">
                                 <rect key="frame" x="80" y="240" width="215" height="127"/>
                             </imageView>
                         </subviews>
@@ -229,11 +229,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="osI-49-mM5"/>
                     </view>
-                    <connections>
-                        <outlet property="addButton" destination="MeH-KJ-dUw" id="SZC-Ko-wkf"/>
-                        <outlet property="cardName" destination="XCw-5J-JKA" id="T09-ec-gYK"/>
-                        <outlet property="cardNr" destination="s23-Oe-bdM" id="2Lb-Kc-DRD"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QfU-nC-61J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -326,7 +321,7 @@
         <!--Home View Controller-->
         <scene sceneID="kwN-uD-W9d">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hFy-X8-2Yt" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hFy-X8-2Yt" customClass="HomeViewController" customModule="CardWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KX6-bQ-4SK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -393,7 +388,7 @@
                         <viewLayoutGuide key="safeArea" id="kMV-eb-7BD"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="ekc-qM-94D" id="0Tb-dO-roe"/>
+                        <outlet property="tableView" destination="ekc-qM-94D" id="tX0-OF-ejy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfU-2A-ra2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -485,7 +480,4 @@
             <point key="canvasLocation" x="2605.5999999999999" y="680.5097451274363"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="cardWalletlogo.png" width="371" height="227"/>
-    </resources>
 </document>
