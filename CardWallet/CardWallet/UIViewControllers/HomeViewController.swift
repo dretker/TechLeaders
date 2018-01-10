@@ -12,6 +12,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
   //  var cards : [String] = [""]
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nameTextFiled: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
