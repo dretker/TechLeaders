@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370CF819200563EA00190259 /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370CF818200563EA00190259 /* CardsTableViewController.swift */; };
 		8525162B1FE825890088416F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525162A1FE825890088416F /* RegisterViewController.swift */; };
 		8525162D1FE8416F0088416F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525162C1FE8416F0088416F /* LoginViewController.swift */; };
 		8525162F1FE841F30088416F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525162E1FE841F30088416F /* HomeViewController.swift */; };
-		853C69CF1FFED0DF00F56912 /* cardWalletlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 853C69CE1FFED0DF00F56912 /* cardWalletlogo.png */; };
-		8569600A1FEBEC2F007E4A7F /* lupa.png in Resources */ = {isa = PBXBuildFile; fileRef = 856960091FEBEC2F007E4A7F /* lupa.png */; };
 		8569600C1FEBFD56007E4A7F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8569600B1FEBFD56007E4A7F /* AddViewController.swift */; };
 		8569600E1FEBFD67007E4A7F /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8569600D1FEBFD67007E4A7F /* CardViewController.swift */; };
-		857E6F381FFE73F7008E435D /* logoCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 857E6F371FFE73F7008E435D /* logoCard.png */; };
-		857EBA951FFE6A8100C0602D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 857EBA941FFE6A8000C0602D /* background.png */; };
 		857F93961FE2C00100857762 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F93951FE2C00100857762 /* AppDelegate.swift */; };
 		857F939B1FE2C00100857762 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857F93991FE2C00100857762 /* Main.storyboard */; };
 		857F939D1FE2C00100857762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 857F939C1FE2C00100857762 /* Assets.xcassets */; };
@@ -34,15 +31,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		370CF818200563EA00190259 /* CardsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewController.swift; sourceTree = "<group>"; };
 		8525162A1FE825890088416F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8525162C1FE8416F0088416F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8525162E1FE841F30088416F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		853C69CE1FFED0DF00F56912 /* cardWalletlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cardWalletlogo.png; path = ../../../cardWalletlogo.png; sourceTree = "<group>"; };
-		856960091FEBEC2F007E4A7F /* lupa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lupa.png; path = ../../../lupa.png; sourceTree = "<group>"; };
 		8569600B1FEBFD56007E4A7F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		8569600D1FEBFD67007E4A7F /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
-		857E6F371FFE73F7008E435D /* logoCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logoCard.png; path = ../../../logoCard.png; sourceTree = "<group>"; };
-		857EBA941FFE6A8000C0602D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../../../background.png; sourceTree = "<group>"; };
 		857F93921FE2C00100857762 /* CardWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		857F93951FE2C00100857762 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		857F939A1FE2C00100857762 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,6 +66,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3700C0382005674100F58DFD /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				857F93951FE2C00100857762 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		3700C0392005674C00F58DFD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				857F939C1FE2C00100857762 /* Assets.xcassets */,
+				857F93A11FE2C00100857762 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3700C03A2005675800F58DFD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				857F939E1FE2C00100857762 /* LaunchScreen.storyboard */,
+				857F93991FE2C00100857762 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		3700C03B2005676300F58DFD /* UIViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8525162A1FE825890088416F /* RegisterViewController.swift */,
+				8525162C1FE8416F0088416F /* LoginViewController.swift */,
+				8525162E1FE841F30088416F /* HomeViewController.swift */,
+				8569600B1FEBFD56007E4A7F /* AddViewController.swift */,
+				8569600D1FEBFD67007E4A7F /* CardViewController.swift */,
+				370CF818200563EA00190259 /* CardsTableViewController.swift */,
+			);
+			path = UIViewControllers;
+			sourceTree = "<group>";
+		};
 		857F93891FE2C00100857762 = {
 			isa = PBXGroup;
 			children = (
@@ -93,20 +126,10 @@
 		857F93941FE2C00100857762 /* CardWallet */ = {
 			isa = PBXGroup;
 			children = (
-				857EBA941FFE6A8000C0602D /* background.png */,
-				857E6F371FFE73F7008E435D /* logoCard.png */,
-				853C69CE1FFED0DF00F56912 /* cardWalletlogo.png */,
-				856960091FEBEC2F007E4A7F /* lupa.png */,
-				857F93951FE2C00100857762 /* AppDelegate.swift */,
-				857F939C1FE2C00100857762 /* Assets.xcassets */,
-				857F93A11FE2C00100857762 /* Info.plist */,
-				857F939E1FE2C00100857762 /* LaunchScreen.storyboard */,
-				857F93991FE2C00100857762 /* Main.storyboard */,
-				8525162A1FE825890088416F /* RegisterViewController.swift */,
-				8525162C1FE8416F0088416F /* LoginViewController.swift */,
-				8525162E1FE841F30088416F /* HomeViewController.swift */,
-				8569600B1FEBFD56007E4A7F /* AddViewController.swift */,
-				8569600D1FEBFD67007E4A7F /* CardViewController.swift */,
+				3700C0382005674100F58DFD /* AppDelegate */,
+				3700C03A2005675800F58DFD /* Storyboards */,
+				3700C0392005674C00F58DFD /* Resources */,
+				3700C03B2005676300F58DFD /* UIViewControllers */,
 			);
 			path = CardWallet;
 			sourceTree = "<group>";
@@ -204,12 +227,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				857F93A01FE2C00100857762 /* LaunchScreen.storyboard in Resources */,
-				857E6F381FFE73F7008E435D /* logoCard.png in Resources */,
-				857EBA951FFE6A8100C0602D /* background.png in Resources */,
-				8569600A1FEBEC2F007E4A7F /* lupa.png in Resources */,
 				857F939D1FE2C00100857762 /* Assets.xcassets in Resources */,
 				857F939B1FE2C00100857762 /* Main.storyboard in Resources */,
-				853C69CF1FFED0DF00F56912 /* cardWalletlogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +250,7 @@
 				8525162F1FE841F30088416F /* HomeViewController.swift in Sources */,
 				8569600E1FEBFD67007E4A7F /* CardViewController.swift in Sources */,
 				8525162D1FE8416F0088416F /* LoginViewController.swift in Sources */,
+				370CF819200563EA00190259 /* CardsTableViewController.swift in Sources */,
 				8525162B1FE825890088416F /* RegisterViewController.swift in Sources */,
 				857F93961FE2C00100857762 /* AppDelegate.swift in Sources */,
 			);
@@ -386,7 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CardWallet/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CardWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = anja.CardWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -400,7 +420,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CardWallet/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CardWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = anja.CardWallet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
