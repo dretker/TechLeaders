@@ -1,35 +1,25 @@
 //
-//  CardsTableViewController.swift
+//  CardTableViewController.swift
 //  CardWallet
 //
-//  Created by Grzegorz Przybyła on 09/01/2018.
+//  Created by Ania Kuliś on 14.01.2018.
 //  Copyright © 2018 Ania Kulis. All rights reserved.
 //
 
 import UIKit
 
-struct Card{
-    var name: String
-    var number: Int
-    var photo: UIImage?
+class CardTableViewController: UITableViewController {
 
-
-    init(name: String, number: Int, photo: UIImage){
-    self.name = name
-    self.number = number
-    self.photo = photo
-}
-
-}
-
-class CardsTableViewController: UITableViewController {
-
-    
     var cards = [Card]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSampleCards()
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,7 +31,7 @@ class CardsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,19 +93,5 @@ class CardsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    
-    
-    private func loadSampleCards(){
-        let photo1 = UIImage(named: "logoCard")
-        
-        guard let card1 = Card(name:"Karta 1", number: 1, photo: photo1) else {fatalError("Unable to instantiate card1")}
-        
-        guard let card2 = Card(name:"Karta 2", number: 2, photo: photo1) else {fatalError("Unable to instantiate card2")}
-        
-        guard let card3 = Card(name:"Karta 3", number:3, photo: photo1) else {fatalError("Unable to instantiate card3")}
-        
-        cards += [card1, card2, card3]
-    }
 
 }
