@@ -8,19 +8,6 @@
 
 import UIKit
 
-struct Card{
-    var name: String
-    var number: Int
-    var photo: UIImage?
-
-
-    init(name: String, number: Int, photo: UIImage){
-    self.name = name
-    self.number = number
-    self.photo = photo
-}
-
-}
 
 class CardsTableViewController: UITableViewController {
 
@@ -40,24 +27,33 @@ class CardsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return cards.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
-
+        let cellIdentifier = "CardTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CardTableViewCell else {
+            fatalError("The dequed cell is not an instance of CardTableViewCell.")
+        }
+        
+        let card = cards[indexPath.row]
+        
+        cell.cardName.text = card.name
+        let numberX = String(card.number)
+        cell.cardNr.text = numberX
+        
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -107,15 +103,14 @@ class CardsTableViewController: UITableViewController {
     
     
     private func loadSampleCards(){
-        let photo1 = UIImage(named: "logoCard")
+        //let photo1 = UIImage(named: "logoCard")
         
-        guard let card1 = Card(name:"Karta 1", number: 1, photo: photo1) else {fatalError("Unable to instantiate card1")}
+        let card1 = Card(name:"Karta 1", number: 1)
         
-        guard let card2 = Card(name:"Karta 2", number: 2, photo: photo1) else {fatalError("Unable to instantiate card2")}
+        let card2 = Card(name:"Karta 2", number: 2)
         
-        guard let card3 = Card(name:"Karta 3", number:3, photo: photo1) else {fatalError("Unable to instantiate card3")}
+        let card3 = Card(name:"Karta 3", number:3)
         
         cards += [card1, card2, card3]
-    }
-
+}
 }

@@ -445,10 +445,10 @@
             </objects>
             <point key="canvasLocation" x="2543.1999999999998" y="-152.47376311844079"/>
         </scene>
-        <!--Card View Controller-->
+        <!--Separate Card View Controller-->
         <scene sceneID="FPF-FU-uik">
             <objects>
-                <viewController id="PeA-5v-hWq" customClass="CardViewController" customModule="CardWallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PeA-5v-hWq" customClass="SeparateCardViewController" customModule="CardWallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MgC-ni-v7T">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

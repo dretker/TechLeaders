@@ -11,8 +11,9 @@
 		8525162B1FE825890088416F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525162A1FE825890088416F /* RegisterViewController.swift */; };
 		8525162D1FE8416F0088416F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525162C1FE8416F0088416F /* LoginViewController.swift */; };
 		8525162F1FE841F30088416F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525162E1FE841F30088416F /* HomeViewController.swift */; };
+		854BDE87201624B0003D2A36 /* SeparateCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854BDE86201624B0003D2A36 /* SeparateCardViewController.swift */; };
+		854BDE8B201629A0003D2A36 /* CardStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854BDE8A201629A0003D2A36 /* CardStruct.swift */; };
 		8569600C1FEBFD56007E4A7F /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8569600B1FEBFD56007E4A7F /* AddViewController.swift */; };
-		8569600E1FEBFD67007E4A7F /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8569600D1FEBFD67007E4A7F /* CardViewController.swift */; };
 		857EC2C92006BD7900B0E749 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857EC2C82006BD7900B0E749 /* CardTableViewCell.swift */; };
 		857F93961FE2C00100857762 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F93951FE2C00100857762 /* AppDelegate.swift */; };
 		857F939B1FE2C00100857762 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857F93991FE2C00100857762 /* Main.storyboard */; };
@@ -36,8 +37,9 @@
 		8525162A1FE825890088416F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8525162C1FE8416F0088416F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8525162E1FE841F30088416F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		854BDE86201624B0003D2A36 /* SeparateCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparateCardViewController.swift; sourceTree = "<group>"; };
+		854BDE8A201629A0003D2A36 /* CardStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStruct.swift; sourceTree = "<group>"; };
 		8569600B1FEBFD56007E4A7F /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		8569600D1FEBFD67007E4A7F /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		857EC2C82006BD7900B0E749 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		857F93921FE2C00100857762 /* CardWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		857F93951FE2C00100857762 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,8 +103,8 @@
 				8525162C1FE8416F0088416F /* LoginViewController.swift */,
 				8525162E1FE841F30088416F /* HomeViewController.swift */,
 				8569600B1FEBFD56007E4A7F /* AddViewController.swift */,
-				8569600D1FEBFD67007E4A7F /* CardViewController.swift */,
 				370CF818200563EA00190259 /* CardsTableViewController.swift */,
+				854BDE86201624B0003D2A36 /* SeparateCardViewController.swift */,
 			);
 			path = UIViewControllers;
 			sourceTree = "<group>";
@@ -110,6 +112,7 @@
 		857F93891FE2C00100857762 = {
 			isa = PBXGroup;
 			children = (
+				854BDE8A201629A0003D2A36 /* CardStruct.swift */,
 				857EC2C82006BD7900B0E749 /* CardTableViewCell.swift */,
 				857F93941FE2C00100857762 /* CardWallet */,
 				857F93A91FE2C00100857762 /* CardWalletTests */,
@@ -251,8 +254,9 @@
 			files = (
 				8569600C1FEBFD56007E4A7F /* AddViewController.swift in Sources */,
 				8525162F1FE841F30088416F /* HomeViewController.swift in Sources */,
-				8569600E1FEBFD67007E4A7F /* CardViewController.swift in Sources */,
+				854BDE87201624B0003D2A36 /* SeparateCardViewController.swift in Sources */,
 				8525162D1FE8416F0088416F /* LoginViewController.swift in Sources */,
+				854BDE8B201629A0003D2A36 /* CardStruct.swift in Sources */,
 				370CF819200563EA00190259 /* CardsTableViewController.swift in Sources */,
 				8525162B1FE825890088416F /* RegisterViewController.swift in Sources */,
 				857F93961FE2C00100857762 /* AppDelegate.swift in Sources */,
