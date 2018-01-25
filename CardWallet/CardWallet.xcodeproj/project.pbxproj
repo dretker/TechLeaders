@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		370CF819200563EA00190259 /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370CF818200563EA00190259 /* CardsTableViewController.swift */; };
+		378E6A972019BCAE007D6CE7 /* SingleCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E6A962019BCAE007D6CE7 /* SingleCardTableViewController.swift */; };
 		8525162B1FE825890088416F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525162A1FE825890088416F /* RegisterViewController.swift */; };
 		8525162D1FE8416F0088416F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525162C1FE8416F0088416F /* LoginViewController.swift */; };
 		8525162F1FE841F30088416F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525162E1FE841F30088416F /* HomeViewController.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		370CF818200563EA00190259 /* CardsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewController.swift; sourceTree = "<group>"; };
+		378E6A962019BCAE007D6CE7 /* SingleCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCardTableViewController.swift; sourceTree = "<group>"; };
 		8525162A1FE825890088416F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8525162C1FE8416F0088416F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8525162E1FE841F30088416F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				8569600B1FEBFD56007E4A7F /* AddViewController.swift */,
 				370CF818200563EA00190259 /* CardsTableViewController.swift */,
 				854BDE86201624B0003D2A36 /* SeparateCardViewController.swift */,
+				378E6A962019BCAE007D6CE7 /* SingleCardTableViewController.swift */,
 			);
 			path = UIViewControllers;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8569600C1FEBFD56007E4A7F /* AddViewController.swift in Sources */,
+				378E6A972019BCAE007D6CE7 /* SingleCardTableViewController.swift in Sources */,
 				8525162F1FE841F30088416F /* HomeViewController.swift in Sources */,
 				854BDE87201624B0003D2A36 /* SeparateCardViewController.swift in Sources */,
 				8525162D1FE8416F0088416F /* LoginViewController.swift in Sources */,

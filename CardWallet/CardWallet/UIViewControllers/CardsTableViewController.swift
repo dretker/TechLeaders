@@ -8,11 +8,9 @@
 
 import UIKit
 
-
 class CardsTableViewController: UITableViewController {
-
     
-    var cards = [Card]()
+    var cards: [Card] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,26 +20,25 @@ class CardsTableViewController: UITableViewController {
         addCardButton?.target = self
         addCardButton?.action = #selector(didTapAddCardButton(_:))
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return cards.count
     }
-
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         // Configure the cell...
         let cellIdentifier = "CardTableViewCell"
         
@@ -57,15 +54,16 @@ class CardsTableViewController: UITableViewController {
         
         return cell
     }
- 
+    
     @objc private func didTapAddCardButton(_ sender: AnyObject) {
-        print("Add card")
+        guard let addCardController = storyboard?.instantiateViewController(withIdentifier: "SingleCardTableViewController") as? SingleCardTableViewController else { return }
+        addCardController.delegate = self
+        let navigationController = UINavigationController(rootViewController: addCardController)
+        present(navigationController, animated: true, completion: nil)
     }
     
     
-    
-    private func loadSampleCards(){
-        //let photo1 = UIImage(named: "logoCard")
+    private func loadSampleCards() {
         
         let card1 = Card(name:"Karta 1", number: 1)
         
@@ -73,6 +71,18 @@ class CardsTableViewController: UITableViewController {
         
         let card3 = Card(name:"Karta 3", number:3)
         
-        cards += [card1, card2, card3]
+        let card4 = Card(name: "42")
+        
+        cards += [card1, card2, card3, card4]
+    }
+    
 }
+
+extension CardsTableViewController: SingleCardTableViewControllerDelegate {
+    
+    func didCreateCard(_ card: Card) {
+        cards.append(card)
+        tableView.reloadData()
+    }
+    
 }

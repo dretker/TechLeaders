@@ -8,14 +8,20 @@
 
 import Foundation
 
-struct Card{
-    var name: String
-    var number: Int
+struct Card {
+    
+    let name: String
+    let number: Int
     
     
     init(name: String, number: Int){
         self.name = name
         self.number = number
+    }
+    
+    init(name: String) {
+        self.name = name
+        self.number = UUID().hashValue
     }
     
 }
