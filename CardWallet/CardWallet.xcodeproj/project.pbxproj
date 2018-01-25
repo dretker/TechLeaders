@@ -109,11 +109,18 @@
 			path = UIViewControllers;
 			sourceTree = "<group>";
 		};
-		857F93891FE2C00100857762 = {
+		378E6A952019B489007D6CE7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				854BDE8A201629A0003D2A36 /* CardStruct.swift */,
 				857EC2C82006BD7900B0E749 /* CardTableViewCell.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		857F93891FE2C00100857762 = {
+			isa = PBXGroup;
+			children = (
 				857F93941FE2C00100857762 /* CardWallet */,
 				857F93A91FE2C00100857762 /* CardWalletTests */,
 				857F93931FE2C00100857762 /* Products */,
@@ -132,6 +139,7 @@
 		857F93941FE2C00100857762 /* CardWallet */ = {
 			isa = PBXGroup;
 			children = (
+				378E6A952019B489007D6CE7 /* Common */,
 				3700C0382005674100F58DFD /* AppDelegate */,
 				3700C03A2005675800F58DFD /* Storyboards */,
 				3700C0392005674C00F58DFD /* Resources */,
@@ -414,6 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26DPYSJZ79;
 				INFOPLIST_FILE = "$(SRCROOT)/CardWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = anja.CardWallet;
@@ -428,6 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 26DPYSJZ79;
 				INFOPLIST_FILE = "$(SRCROOT)/CardWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = anja.CardWallet;
