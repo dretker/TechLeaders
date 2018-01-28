@@ -14,12 +14,22 @@ protocol SingleCardTableViewControllerDelegate: class {
 
 class SingleCardTableViewController: UITableViewController {
     
+
+    
+    @IBOutlet weak var cardName: UITextField!
+    @IBOutlet weak var cardNumber: UITextField!
+    
+    
+    
+    
     static let storyboardID = "SingleCardTableViewController"
     
     weak var delegate: SingleCardTableViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "New Card"
+        
         let button = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(didTapSaveButton(_:)))
         navigationItem.rightBarButtonItem = button
         
@@ -29,7 +39,7 @@ class SingleCardTableViewController: UITableViewController {
     
     
     @objc func didTapSaveButton(_ button: UIButton) {
-        let card = Card(name: "CardName", number: 42)
+        let card = Card(name: String(describing: cardName), number: String(describing: cardNumber))
         delegate?.didCreateCard(card)
     }
     

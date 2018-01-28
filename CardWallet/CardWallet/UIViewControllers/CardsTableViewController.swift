@@ -65,13 +65,13 @@ class CardsTableViewController: UITableViewController {
     
     private func loadSampleCards() {
         
-        let card1 = Card(name:"Karta 1", number: 1)
+        let card1 = Card(name:"Karta 1", number: "1")
         
-        let card2 = Card(name:"Karta 2", number: 2)
+        let card2 = Card(name:"Karta 2", number: "2")
         
-        let card3 = Card(name:"Karta 3", number:3)
+        let card3 = Card(name:"Karta 3", number:"3")
         
-        let card4 = Card(name: "42")
+        let card4 = Card(name: "42", number: "373")
         
         cards += [card1, card2, card3, card4]
     }

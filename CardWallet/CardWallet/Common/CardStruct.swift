@@ -11,17 +11,17 @@ import Foundation
 struct Card {
     
     let name: String
-    let number: Int
+    let number: String
     
     
-    init(name: String, number: Int){
+    init(name: String, number: String){
         self.name = name
         self.number = number
     }
     
-    init(name: String) {
+/*    init(name: String) {
         self.name = name
         self.number = UUID().hashValue
-    }
+    }*/
     
 }

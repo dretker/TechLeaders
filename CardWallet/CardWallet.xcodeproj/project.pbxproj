@@ -21,6 +21,8 @@
 		857F939D1FE2C00100857762 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 857F939C1FE2C00100857762 /* Assets.xcassets */; };
 		857F93A01FE2C00100857762 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 857F939E1FE2C00100857762 /* LaunchScreen.storyboard */; };
 		857F93AB1FE2C00100857762 /* CardWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857F93AA1FE2C00100857762 /* CardWalletTests.swift */; };
+		85F6FCF7201B5FA800F8C098 /* CardNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F6FCF6201B5FA800F8C098 /* CardNameTableViewCell.swift */; };
+		85F6FCF9201B5FBB00F8C098 /* CardNumberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F6FCF8201B5FBB00F8C098 /* CardNumberTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,8 @@
 		857F93A61FE2C00100857762 /* CardWalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardWalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		857F93AA1FE2C00100857762 /* CardWalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardWalletTests.swift; sourceTree = "<group>"; };
 		857F93AC1FE2C00100857762 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85F6FCF6201B5FA800F8C098 /* CardNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNameTableViewCell.swift; sourceTree = "<group>"; };
+		85F6FCF8201B5FBB00F8C098 /* CardNumberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardNumberTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 		378E6A952019B489007D6CE7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				85F6FCF6201B5FA800F8C098 /* CardNameTableViewCell.swift */,
+				85F6FCF8201B5FBB00F8C098 /* CardNumberTableViewCell.swift */,
 				854BDE8A201629A0003D2A36 /* CardStruct.swift */,
 				857EC2C82006BD7900B0E749 /* CardTableViewCell.swift */,
 			);
@@ -268,10 +274,12 @@
 				8525162F1FE841F30088416F /* HomeViewController.swift in Sources */,
 				854BDE87201624B0003D2A36 /* SeparateCardViewController.swift in Sources */,
 				8525162D1FE8416F0088416F /* LoginViewController.swift in Sources */,
+				85F6FCF7201B5FA800F8C098 /* CardNameTableViewCell.swift in Sources */,
 				854BDE8B201629A0003D2A36 /* CardStruct.swift in Sources */,
 				370CF819200563EA00190259 /* CardsTableViewController.swift in Sources */,
 				8525162B1FE825890088416F /* RegisterViewController.swift in Sources */,
 				857F93961FE2C00100857762 /* AppDelegate.swift in Sources */,
+				85F6FCF9201B5FBB00F8C098 /* CardNumberTableViewCell.swift in Sources */,
 				857EC2C92006BD7900B0E749 /* CardTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,7 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 26DPYSJZ79;
+				DEVELOPMENT_TEAM = 6LXU285QKH;
 				INFOPLIST_FILE = "$(SRCROOT)/CardWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = anja.CardWallet;
@@ -441,7 +449,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 26DPYSJZ79;
+				DEVELOPMENT_TEAM = 6LXU285QKH;
 				INFOPLIST_FILE = "$(SRCROOT)/CardWallet/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = anja.CardWallet;
