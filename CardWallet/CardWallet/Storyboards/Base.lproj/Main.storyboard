@@ -594,10 +594,6 @@
                             <outlet property="delegate" destination="C5T-We-hI7" id="BWh-El-92H"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <outlet property="cardName" destination="boS-GX-1o9" id="WdC-fL-fLM"/>
-                        <outlet property="cardNumber" destination="MM5-Oc-GKr" id="h0Z-El-oha"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hf-Fv-OKJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

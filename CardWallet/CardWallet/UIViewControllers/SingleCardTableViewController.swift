@@ -16,8 +16,7 @@ class SingleCardTableViewController: UITableViewController {
     
 
     
-    @IBOutlet weak var cardName: UITextField!
-    @IBOutlet weak var cardNumber: UITextField!
+
     
     
     
@@ -39,8 +38,8 @@ class SingleCardTableViewController: UITableViewController {
     
     
     @objc func didTapSaveButton(_ button: UIButton) {
-        let card = Card(name: String(describing: cardName), number: String(describing: cardNumber))
-        delegate?.didCreateCard(card)
+       // let card = Card(name: String(describing: cardName), number: String(describing: cardNumber))
+       // delegate?.didCreateCard(card)
     }
     
     @objc func didTapDismissButton(_ button: UIButton) {
