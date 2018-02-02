@@ -1,19 +1,16 @@
 //
-//  CardTableViewCell.swift
+//  CardImageTableViewCell.swift
 //  CardWallet
 //
-//  Created by Ania Kuliś on 10.01.2018.
+//  Created by Ania Kuliś on 26.01.2018.
 //  Copyright © 2018 Ania Kulis. All rights reserved.
 //
 
 import UIKit
 
-class CardTableViewCell: UITableViewCell {
+class CardImageTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var cardName: UILabel!
-    @IBOutlet weak var cardNr: UILabel!
-    @IBOutlet weak var logoImage: UIImageView!
-    
+    @IBOutlet weak var image: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
