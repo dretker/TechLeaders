@@ -14,16 +14,15 @@ protocol SingleCardTableViewControllerDelegate: class {
 
 class SingleCardTableViewController: UITableViewController {
     
-
-    
-
-    
-    
-    
+    private class NewCard {
+        var name: String?
+        var number: String?
+    }
     
     static let storyboardID = "SingleCardTableViewController"
     
     weak var delegate: SingleCardTableViewControllerDelegate?
+    private var newCard = NewCard()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +37,25 @@ class SingleCardTableViewController: UITableViewController {
     
     
     @objc func didTapSaveButton(_ button: UIButton) {
-       // let card = Card(name: String(describing: cardName), number: String(describing: cardNumber))
-       // delegate?.didCreateCard(card)
+        guard let cardName = newCard.name,
+            let cardNumber = newCard.number else {
+                print("Saving cards before filled all card info")
+                return
+        }
+        let card = Card(name: cardName, number: cardNumber)
+        delegate?.didCreateCard(card)
     }
     
     @objc func didTapDismissButton(_ button: UIButton) {
         navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+extension SingleCardTableViewController: CardNameTableViewCellDelegate {
+    
+    func didFillCardName(_ cardName: String) {
+        newCard.name = cardName
     }
     
 }
