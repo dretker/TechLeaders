@@ -1,5 +1,5 @@
 //
-//  CardImageTableViewCell.swift
+//  NumberLabelTableViewCell.swift
 //  CardWallet
 //
 //  Created by Ania Kuliś on 12.02.2018.
@@ -8,8 +8,10 @@
 
 import UIKit
 
-class CardImageTableViewCell: UITableViewCell {
-
+class NumberLabelTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var numberLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
