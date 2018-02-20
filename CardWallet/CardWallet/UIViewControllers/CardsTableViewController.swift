@@ -19,6 +19,10 @@ class CardsTableViewController: UITableViewController {
         let addCardButton = navigationItem.rightBarButtonItem
         addCardButton?.target = self
         addCardButton?.action = #selector(didTapAddCardButton(_:))
+        
+        
+        self.tableView.allowsSelection = true
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,9 +55,22 @@ class CardsTableViewController: UITableViewController {
         cell.cardName.text = card.name
         let numberX = String(card.number)
         cell.cardNr.text = numberX
+    
         
         return cell
     }
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
+        
+        
+        let destination = EditCardTableViewController() // Your destination
+        navigationController?.pushViewController(destination, animated: true)
+        
+    }
+    
+    
+    
     
     @objc private func didTapAddCardButton(_ sender: AnyObject) {
         guard let addCardController = storyboard?.instantiateViewController(withIdentifier: "SingleCardTableViewController") as? SingleCardTableViewController else { return }
@@ -65,13 +82,13 @@ class CardsTableViewController: UITableViewController {
     
     private func loadSampleCards() {
         
-        let card1 = Card(name:"Karta 1", number: 1)
+        let card1 = Card(name:"Karta 1", number: "1")
         
-        let card2 = Card(name:"Karta 2", number: 2)
+        let card2 = Card(name:"Karta 2", number: "2")
         
-        let card3 = Card(name:"Karta 3", number:3)
+        let card3 = Card(name:"Karta 3", number:"3")
         
-        let card4 = Card(name: "42")
+        let card4 = Card(name: "42", number: "373")
         
         cards += [card1, card2, card3, card4]
     }
