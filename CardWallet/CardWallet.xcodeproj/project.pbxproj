@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		370CF819200563EA00190259 /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370CF818200563EA00190259 /* CardsTableViewController.swift */; };
 		378E6A972019BCAE007D6CE7 /* SingleCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E6A962019BCAE007D6CE7 /* SingleCardTableViewController.swift */; };
+		37EE8166203C08DD00D84846 /* CardWallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37EE8164203C08DD00D84846 /* CardWallet.xcdatamodeld */; };
 		8525162B1FE825890088416F /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525162A1FE825890088416F /* RegisterViewController.swift */; };
 		8525162D1FE8416F0088416F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525162C1FE8416F0088416F /* LoginViewController.swift */; };
 		8525162F1FE841F30088416F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8525162E1FE841F30088416F /* HomeViewController.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		370CF818200563EA00190259 /* CardsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewController.swift; sourceTree = "<group>"; };
 		378E6A962019BCAE007D6CE7 /* SingleCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCardTableViewController.swift; sourceTree = "<group>"; };
+		37EE8165203C08DD00D84846 /* CardWallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CardWallet.xcdatamodel; sourceTree = "<group>"; };
 		8525162A1FE825890088416F /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8525162C1FE8416F0088416F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8525162E1FE841F30088416F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +147,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		37EE8163203C08C500D84846 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				37EE8164203C08DD00D84846 /* CardWallet.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		857F93891FE2C00100857762 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +176,7 @@
 		857F93941FE2C00100857762 /* CardWallet */ = {
 			isa = PBXGroup;
 			children = (
+				37EE8163203C08C500D84846 /* CoreData */,
 				378E6A952019B489007D6CE7 /* Common */,
 				3700C0382005674100F58DFD /* AppDelegate */,
 				3700C03A2005675800F58DFD /* Storyboards */,
@@ -288,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8569600C1FEBFD56007E4A7F /* AddViewController.swift in Sources */,
+				37EE8166203C08DD00D84846 /* CardWallet.xcdatamodeld in Sources */,
 				8599C7242026057F00EE80A8 /* PhotoButtonTableViewCell.swift in Sources */,
 				858D18A12035D54C00BD37E5 /* EditTableViewCell.swift in Sources */,
 				858D18A52035D6BF00BD37E5 /* EditCardTableViewController.swift in Sources */,
@@ -546,6 +558,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		37EE8164203C08DD00D84846 /* CardWallet.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				37EE8165203C08DD00D84846 /* CardWallet.xcdatamodel */,
+			);
+			currentVersion = 37EE8165203C08DD00D84846 /* CardWallet.xcdatamodel */;
+			path = CardWallet.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 857F938A1FE2C00100857762 /* Project object */;
 }
