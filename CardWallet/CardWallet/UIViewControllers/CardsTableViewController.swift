@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CardsTableViewController: UITableViewController {
     
@@ -20,9 +21,31 @@ class CardsTableViewController: UITableViewController {
         addCardButton?.target = self
         addCardButton?.action = #selector(didTapAddCardButton(_:))
         
-        
         self.tableView.allowsSelection = true
+        
+        
+ /*       //adding cards to db
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let newCard = NSEntityDescription.insertNewObject(forEntityName: "CardEntity", into: context)
+        
+        newCard.setValue("", forKey: "name")
+        newCard.setValue("", forKey: "number")
+        newCard.setValue(<#T##value: Any?##Any?#>, forKey: "imageData")
 
+        
+        do{
+            try context.save()
+            print("New card is saved")
+        }
+        catch{
+            
+        }
+ */
+        saveCard(named: "", number: 1, imageData: <#T##Data?#>)
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -101,5 +124,34 @@ extension CardsTableViewController: SingleCardTableViewControllerDelegate {
         cards.append(card)
         tableView.reloadData()
     }
+}
+    
+    
+    private func saveCard(named: String, number: Int, imageData: Data?){
+        
+        //adding cards to db
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let newCard = NSEntityDescription.insertNewObject(forEntityName: "CardEntity", into: context)
+        
+        newCard.setValue("nazwakarty", forKey: "name")
+        newCard.setValue("nrkarty", forKey: "number")
+        newCard.setValue(<#T##value: Any?##Any?#>, forKey: "imageData")
+        
+        if(String(describing: newCard.value(forKey: "name")).isEmpty == false && String(describing: newCard.value(forKey: "number")).isEmpty == false){
+        
+            do{
+                try context.save()
+                print("New card is saved")
+            }
+            catch{
+                fatalError("Unresolved error - card is not saved")
+            }
+        }else
+        {
+            fatalError("No data to save")
+        }
+    
     
 }
