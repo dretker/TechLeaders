@@ -17,6 +17,7 @@ class SingleCardTableViewController: UITableViewController {
     private class NewCard {
         var name: String?
         var number: String?
+        var image: UIImage?
     }
     
     static let storyboardID = "SingleCardTableViewController"
@@ -84,6 +85,9 @@ class SingleCardTableViewController: UITableViewController {
             
         case 4:
             cell = tableView.dequeueReusableCell(withIdentifier: "CardImageViewCell")
+            newCard.image.map {
+                (cell as? CardImageTableViewCell)?.setupImage($0)
+            }
             return cell!
             
         case 5:
@@ -100,8 +104,29 @@ class SingleCardTableViewController: UITableViewController {
     }
     
     func pickImage() {
-        print("Image picker")
+        // Display image picker controller
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        navigationController?.show(picker, sender: self)
     }
+    
+}
+
+extension SingleCardTableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("User cancelled")
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        defer { picker.dismiss(animated: true, completion: nil) }
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            newCard.image = image
+            tableView.reloadData()
+        }
+    }
+    
 }
 
 extension SingleCardTableViewController: CardNameTableViewCellDelegate {

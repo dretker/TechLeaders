@@ -603,6 +603,9 @@
                                         <constraint firstAttribute="trailing" secondItem="cYa-Cz-e2P" secondAttribute="trailing" constant="20" id="HFM-GI-oOW"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cardImageView" destination="cYa-Cz-e2P" id="cr4-Pc-iY6"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoButtonViewCell" id="tEi-FV-IrE" customClass="PhotoButtonTableViewCell" customModule="CardWallet" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="556" width="375" height="44"/>
