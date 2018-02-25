@@ -26,19 +26,13 @@ class CardNumberTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        number.delegate = self
     }
 
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-        guard let text = textField.text, !text.isEmpty else { return }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let text = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         delegate?.didFillCardNumber(text)
+        return true
     }
     
 }

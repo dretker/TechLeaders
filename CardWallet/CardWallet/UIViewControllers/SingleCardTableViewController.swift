@@ -22,6 +22,7 @@ class SingleCardTableViewController: UITableViewController {
     static let storyboardID = "SingleCardTableViewController"
     
     weak var delegate: SingleCardTableViewControllerDelegate?
+    var coreDataManager = CoreDataManager.shared
     private var newCard = NewCard()
     
     override func viewDidLoad() {
@@ -42,8 +43,7 @@ class SingleCardTableViewController: UITableViewController {
                 print("Saving cards before filled all card info")
                 return
         }
-        let card = Card(name: cardName, number: cardNumber)
-        delegate?.didCreateCard(card)
+        coreDataManager.saveCard(named: cardName, number: cardNumber, imageData: nil)
         navigationController?.dismiss(animated: true, completion: nil)
 
     }
@@ -51,8 +51,6 @@ class SingleCardTableViewController: UITableViewController {
     @objc func didTapDismissButton(_ button: UIButton) {
         navigationController?.dismiss(animated: true, completion: nil)
     }
-    
-    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -62,36 +60,37 @@ class SingleCardTableViewController: UITableViewController {
         return 6
     }
     
-    //view of cells
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // Configure the cell...
-        //let cellIdentifier = "SingleCardTableViewCell"
-        
+        var cell: UITableViewCell?
+        defer { cell?.separatorInset = UIEdgeInsets(top: 0, left: view.bounds.width, bottom: 0, right: 0) }
         switch indexPath.row{
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NameLabelViewCell")
+            cell = tableView.dequeueReusableCell(withIdentifier: "NameLabelViewCell")
             return cell!
             
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CardNameViewCell")
+            cell = tableView.dequeueReusableCell(withIdentifier: "CardNameViewCell")
+            (cell as? CardNameTableViewCell)?.delegate = self
             return cell!
             
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NumberLabelViewCell")
+            cell = tableView.dequeueReusableCell(withIdentifier: "NumberLabelViewCell")
             return cell!
             
         case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CardNumberViewCell")
+            cell = tableView.dequeueReusableCell(withIdentifier: "CardNumberViewCell")
+            (cell as? CardNumberTableViewCell)?.delegate = self
             return cell!
             
         case 4:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CardImageViewCell")
+            cell = tableView.dequeueReusableCell(withIdentifier: "CardImageViewCell")
             return cell!
             
         case 5:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoButtonViewCell")
+            cell = tableView.dequeueReusableCell(withIdentifier: "PhotoButtonViewCell")
+            (cell as? PhotoButtonTableViewCell)?.onButtonTap = { [weak self] in
+                self?.pickImage()
+            }
             return cell!
             
         default:
@@ -100,9 +99,9 @@ class SingleCardTableViewController: UITableViewController {
 
     }
     
-    
-    
-    
+    func pickImage() {
+        print("Image picker")
+    }
 }
 
 extension SingleCardTableViewController: CardNameTableViewCellDelegate {
@@ -113,3 +112,10 @@ extension SingleCardTableViewController: CardNameTableViewCellDelegate {
     
 }
 
+extension SingleCardTableViewController: CardNumberTableViewCellDelegate {
+
+    func didFillCardNumber(_ cardNumber: String) {
+        newCard.number = cardNumber
+    }
+    
+}
