@@ -3,9 +3,16 @@
     <entity name="CardEntity" representedClassName="CardEntity" syncable="YES" codeGenerationType="class">
         <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="number" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UsereEntity" inverseName="cards" inverseEntity="UsereEntity" syncable="YES"/>
+    </entity>
+    <entity name="UsereEntity" representedClassName="UsereEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="password" attributeType="String" syncable="YES"/>
+        <relationship name="cards" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CardEntity" inverseName="owner" inverseEntity="CardEntity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CardEntity" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="CardEntity" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="UsereEntity" positionX="-63" positionY="9" width="128" height="90"/>
     </elements>
 </model>

@@ -25,6 +25,11 @@ class CardsTableViewController: UITableViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadSampleCards()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -74,14 +79,13 @@ class CardsTableViewController: UITableViewController {
     
     @objc private func didTapAddCardButton(_ sender: AnyObject) {
         guard let addCardController = storyboard?.instantiateViewController(withIdentifier: "SingleCardTableViewController") as? SingleCardTableViewController else { return }
-        addCardController.delegate = self
         let navigationController = UINavigationController(rootViewController: addCardController)
         present(navigationController, animated: true, completion: nil)
     }
     
-    
+    // fetch cards for user named
     private func loadSampleCards() {
-        
+        // core data fetch request
         let card1 = Card(name:"Karta 1", number: "1")
         
         let card2 = Card(name:"Karta 2", number: "2")
@@ -91,14 +95,7 @@ class CardsTableViewController: UITableViewController {
         let card4 = Card(name: "42", number: "373")
         
         cards += [card1, card2, card3, card4]
+        self.tableView.reloadData()
     }
     
-}
-
-extension CardsTableViewController: SingleCardTableViewControllerDelegate {
-    
-    func didCreateCard(_ card: Card) {
-        cards.append(card)
-        tableView.reloadData()
-    }
 }

@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol SingleCardTableViewControllerDelegate: class {
-    func didCreateCard(_ card: Card)
-}
-
 class SingleCardTableViewController: UITableViewController {
     
     private class NewCard {
@@ -22,7 +18,6 @@ class SingleCardTableViewController: UITableViewController {
     
     static let storyboardID = "SingleCardTableViewController"
     
-    weak var delegate: SingleCardTableViewControllerDelegate?
     var coreDataManager = CoreDataManager.shared
     private var newCard = NewCard()
     
@@ -40,11 +35,13 @@ class SingleCardTableViewController: UITableViewController {
     
     @objc private func didTapSaveButton(_ button: UIButton) {
         guard let cardName = newCard.name,
-            let cardNumber = newCard.number else {
+            let cardNumber = newCard.number,
+            let newImage = newCard.image else {
                 print("Saving cards before filled all card info")
                 return
         }
-        coreDataManager.saveCard(named: cardName, number: cardNumber, imageData: nil)
+        let imageData = UIImagePNGRepresentation(newImage)
+        coreDataManager.saveCard(named: cardName, number: cardNumber, imageData: imageData)
         navigationController?.dismiss(animated: true, completion: nil)
 
     }
@@ -106,6 +103,7 @@ class SingleCardTableViewController: UITableViewController {
     func pickImage() {
         // Display image picker controller
         let picker = UIImagePickerController()
+//        picker.sourceType = .camera
         picker.delegate = self
         navigationController?.show(picker, sender: self)
     }

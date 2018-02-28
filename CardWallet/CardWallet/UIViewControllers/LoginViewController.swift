@@ -21,15 +21,15 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func loginUser(userName: String, password: String) {
+        let coreDataManager = CoreDataManager.shared
+        if coreDataManager.fetchUser(named: userName, password: password) {
+            UserStore.shared.loggedUserName = userName
+        } else {
+            // alert that user doesn't exist OR
+            // save user in db
+            UserStore.shared.loggedUserName = userName
+        }
     }
-    */
 
 }

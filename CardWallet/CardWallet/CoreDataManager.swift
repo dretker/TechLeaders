@@ -9,9 +9,21 @@
 import Foundation
 import CoreData
 
+class UserStore {
+    
+    static let shared = UserStore()
+    
+    var loggedUserName: String?
+    
+    private init() {}
+
+}
+
 public class CoreDataManager {
     
     static let shared = CoreDataManager()
+    
+    private init() {}
     
     // MARK: Setup
     
@@ -25,8 +37,7 @@ public class CoreDataManager {
         return container
     }()
     
-    func saveContext() {
-        let context = persistentContainer.viewContext
+    private func saveContext(_ context: NSManagedObjectContext) {
         if context.hasChanges {
             do {
                 try context.save()
@@ -40,13 +51,29 @@ public class CoreDataManager {
         }
     }
     
+    func fetchUser(named: String, password: String) -> Bool {
+        let context = persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<UsereEntity> = UsereEntity.fetchRequest()
+        let namePredicate = NSPredicate(format: "%K = %@", #keyPath(UsereEntity.name), named)
+        let passwordPredicate = NSPredicate(format: "%K = %@", #keyPath(UsereEntity.password), password)
+        let finalPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [namePredicate, passwordPredicate])
+        fetchRequest.predicate = finalPredicate
+        if let result = try? context.fetch(fetchRequest) {
+            return !result.isEmpty
+        }
+        return false
+    }
+    
     func saveCard(named: String, number: String, imageData: Data?) {
-        let entity = NSEntityDescription.entity(forEntityName: "CardEntity", in: persistentContainer.viewContext)
-        let card = CardEntity.init(entity: entity!, insertInto: persistentContainer.viewContext)
-        card.name = named
-        card.number = Int64(number) ?? Int64(UUID().hashValue)
-        card.imageData = imageData
-        saveContext()
+        let context = persistentContainer.newBackgroundContext()
+        context.perform {
+            let entity = NSEntityDescription.entity(forEntityName: "CardEntity", in: context)
+            let card = CardEntity.init(entity: entity!, insertInto: context)
+            card.name = named
+            card.number = Int64(number) ?? Int64(UUID().hashValue)
+            card.imageData = imageData
+            self.saveContext(context)
+        }
     }
     
 }
