@@ -86,6 +86,16 @@ class CardsTableViewController: UITableViewController {
     // fetch cards for user named
     private func loadSampleCards() {
         // core data fetch request
+        
+        let coreDataManager = CoreDataManager.shared
+        let availableCards = coreDataManager.fetchCard()
+        
+        let cards = availableCards.map{CardEntity in Card(name: CardEntity.name!, number: String(CardEntity.number)) }
+        
+        self.cards = cards
+        self.tableView.reloadData()
+
+        /*
         let card1 = Card(name:"Karta 1", number: "1")
         
         let card2 = Card(name:"Karta 2", number: "2")
@@ -93,9 +103,30 @@ class CardsTableViewController: UITableViewController {
         let card3 = Card(name:"Karta 3", number:"3")
         
         let card4 = Card(name: "42", number: "373")
-        
+ 
         cards += [card1, card2, card3, card4]
-        self.tableView.reloadData()
+ */
+     
+        
+    
+        
+     /*   let coreDataManager = CoreDataManager.shared
+        if coreDataManager.fetchCard(name: CardNameTableViewCell.name, number: CardNumberTableViewCell.number){
+            //info, that card is already in db
+            let alert = UIAlertController(title: "Info:", message: "That card is already saved", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }else{
+            //if not, we add new card to the list
+            let addCard = (CardNameTableViewCell.name, CardNumberTableViewCell.number, CardImageTableViewCell.image)
+            CoreDataManager.saveCard(named: name, number: number, photo: image)
+            cards += [addCard]
+ 
+        }*/
+        
+        
+        
+        
     }
     
 }

@@ -19,6 +19,17 @@ class UserStore {
 
 }
 
+/* ??
+class CardStore {
+    
+    static let shared = CardStore()
+    
+    var CardName: String?
+    
+    private init() {}
+    
+}*/
+
 public class CoreDataManager {
     
     static let shared = CoreDataManager()
@@ -51,6 +62,18 @@ public class CoreDataManager {
         }
     }
     
+    func saveUser(login: String, password: String, email: String?) {
+        let context = persistentContainer.newBackgroundContext()
+        context.perform {
+            let entity = NSEntityDescription.entity(forEntityName: "UsereEntity", in: context)
+            let user = UsereEntity.init(entity: entity!, insertInto: context)
+            user.name = login
+            user.password = password
+            user.email = email
+            self.saveContext(context)
+        }
+    }
+    
     func fetchUser(named: String, password: String) -> Bool {
         let context = persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<UsereEntity> = UsereEntity.fetchRequest()
@@ -76,4 +99,21 @@ public class CoreDataManager {
         }
     }
     
+    
+    func fetchCard() -> [CardEntity] {
+        let context = persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName:"CardEntity")
+        //var availableCards: [CardEntity] = []
+        
+        if let result = try? context.fetch(request) as! [CardEntity] {
+            print ("done")
+            return result
+        }
+
+        return []
+    }
+
+    
+    
 }
+

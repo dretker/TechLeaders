@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="338-y5-gCU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="338-y5-gCU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,7 +42,7 @@
         <!--Register View Controller-->
         <scene sceneID="K16-OW-LH7">
             <objects>
-                <viewController storyboardIdentifier="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C6Z-Wt-iTA" customClass="RegisterViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C6Z-Wt-iTA" customClass="RegisterViewController" customModule="CardWallet" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FuJ-aB-8Bz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,7 +81,7 @@
                                 <rect key="frame" x="118" y="277" width="217" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pLV-jJ-73w">
                                 <rect key="frame" x="133" y="352" width="89" height="33"/>
@@ -101,7 +101,7 @@
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="338-y5-gCU" kind="presentation" id="iA9-0y-tPw"/>
+                                                    <action selector="registrationButtonPressedWithSender:" destination="C6Z-Wt-iTA" eventType="touchUpInside" id="5Tc-MW-Y93"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -143,6 +143,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mwn-cR-QOj"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="5jB-Z5-ufu" id="dkB-RG-Uis"/>
+                        <outlet property="login" destination="pEd-Mq-139" id="bBT-mB-EgY"/>
+                        <outlet property="password" destination="KXs-Jf-bYd" id="oK0-me-zDK"/>
+                        <outlet property="registerButton" destination="yEp-64-I8A" id="8jc-TV-5tR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ViM-9a-VAt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -235,7 +241,7 @@
         <!--Login View Controller-->
         <scene sceneID="qF9-LO-74g">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="338-y5-gCU" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="338-y5-gCU" customClass="LoginViewController" customModule="CardWallet" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TtS-bA-9id">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -281,7 +287,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="b8f-nK-ye7" kind="presentation" id="1db-7z-vk6"/>
+                                    <action selector="pressedLoginButton:" destination="338-y5-gCU" eventType="touchUpInside" id="nzo-zi-6mA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4BJ-ay-f5K">
@@ -289,7 +295,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="register here"/>
                                 <connections>
-                                    <segue destination="C6Z-Wt-iTA" kind="presentation" id="wiA-zv-xVl"/>
+                                    <segue destination="C6Z-Wt-iTA" kind="presentation" id="viV-XX-JVo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -313,6 +319,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fSO-JR-F82"/>
                     </view>
+                    <connections>
+                        <outlet property="loginU" destination="c6a-Mv-TU7" id="8ef-SA-Lhf"/>
+                        <outlet property="passwordU" destination="tRd-EF-c8W" id="y4a-IT-Jzi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKb-g8-W0P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
