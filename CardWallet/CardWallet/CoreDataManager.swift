@@ -19,17 +19,6 @@ class UserStore {
 
 }
 
-/* ??
-class CardStore {
-    
-    static let shared = CardStore()
-    
-    var CardName: String?
-    
-    private init() {}
-    
-}*/
-
 public class CoreDataManager {
     
     static let shared = CoreDataManager()
@@ -88,7 +77,7 @@ public class CoreDataManager {
     }
     
     func saveCard(named: String, number: String, imageData: Data?) {
-        let context = persistentContainer.newBackgroundContext()
+        let context = persistentContainer.viewContext
         context.perform {
             let entity = NSEntityDescription.entity(forEntityName: "CardEntity", in: context)
             let card = CardEntity.init(entity: entity!, insertInto: context)
