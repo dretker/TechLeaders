@@ -41,9 +41,6 @@ class SingleCardTableViewController: UITableViewController {
                 return
         }
         
-                
-        
-        
         let imageData = UIImagePNGRepresentation(newImage)
         coreDataManager.saveCard(named: cardName, number: cardNumber, imageData: imageData)
         navigationController?.dismiss(animated: true, completion: nil)
