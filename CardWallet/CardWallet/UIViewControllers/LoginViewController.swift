@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
             
             // alert that user doesn't exist OR
             // save user in db
-            UserStore.shared.loggedUserName = userName
+            //UserStore.shared.loggedUserName = userName
         }
     }
     

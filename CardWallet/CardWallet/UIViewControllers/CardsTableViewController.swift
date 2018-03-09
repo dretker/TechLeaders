@@ -37,6 +37,9 @@ class CardsTableViewController: UITableViewController {
             print("\(fetchError), \(fetchError.userInfo)")
         }
         
+        let logoutButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapLogoutButton(_:)))
+        navigationItem.leftBarButtonItem = logoutButton
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,6 +81,8 @@ class CardsTableViewController: UITableViewController {
         cell.cardName.text = card.name
         let numberX = String(card.number)
         cell.cardNr.text = numberX
+        cell.cardImage = card.image
+       
         
         
         return cell
@@ -97,8 +102,17 @@ class CardsTableViewController: UITableViewController {
         present(navigationController, animated: true, completion: nil)
     }
     
+    @objc private func didTapLogoutButton(_ sender: AnyObject) {
+        
+        UserStore.shared.loggedUserName = nil
+
+        guard let logoutController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
+        let navigationController = UINavigationController(rootViewController: logoutController)
+        present(navigationController, animated: true, completion: nil)
+    }
+    
     private func mapCard(_ cardEntity: CardEntity) -> Card {
-        return Card(name: cardEntity.name!, number: String(cardEntity.number))
+        return Card(name: cardEntity.name!, number: String(cardEntity.number), image: UIImage(data: cardEntity.imageData!)!)
     }
     
     // fetch cards for user named

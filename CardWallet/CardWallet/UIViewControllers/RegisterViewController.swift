@@ -15,6 +15,7 @@ class RegisterViewController: UIViewController {
         var userLogin: String?
         var userPassword: String?
         var email: String?
+        var cards: CardEntity? //NSSet?
     }
     
     var coreDataManager = CoreDataManager.shared
@@ -63,9 +64,9 @@ class RegisterViewController: UIViewController {
         if (login.hasText && password.hasText && email.hasText){
             
             if (!EmailAddressValid){
-                let alertE = UIAlertController(title: "Warning:", message: "E-mail address is not correct!", preferredStyle: UIAlertControllerStyle.alert)
-                alertE.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
-                self.present(alertE, animated: true, completion: nil)
+                let alertEmailFailed = UIAlertController(title: "Warning:", message: "E-mail address is not correct!", preferredStyle: UIAlertControllerStyle.alert)
+                alertEmailFailed.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+                self.present(alertEmailFailed, animated: true, completion: nil)
                 return false;
             }
             return true;
@@ -86,6 +87,7 @@ class RegisterViewController: UIViewController {
             newUser.userLogin = login.text
             newUser.userPassword = password.text
             newUser.email = email.text
+            newUser.cards = nil
             
             guard let userName = newUser.userLogin,
                 let userPassword = newUser.userPassword,

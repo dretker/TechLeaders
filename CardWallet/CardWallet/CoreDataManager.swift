@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class UserStore {
     
@@ -72,18 +73,19 @@ public class CoreDataManager {
         fetchRequest.predicate = finalPredicate
         if let result = try? context.fetch(fetchRequest) {
             return !result.isEmpty
+            //return result
         }
         return false
     }
     
-    func saveCard(named: String, number: String, imageData: Data?) {
+    func saveCard(named: String, number: String, imageData: UIImage) {
         let context = persistentContainer.viewContext
         context.perform {
             let entity = NSEntityDescription.entity(forEntityName: "CardEntity", in: context)
             let card = CardEntity.init(entity: entity!, insertInto: context)
             card.name = named
             card.number = Int64(number) ?? Int64(UUID().hashValue)
-            card.imageData = imageData
+            card.imageData = UIImagePNGRepresentation(imageData)
             self.saveContext(context)
         }
     }

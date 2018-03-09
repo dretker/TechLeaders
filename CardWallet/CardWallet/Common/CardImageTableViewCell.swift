@@ -8,12 +8,39 @@
 
 import UIKit
 
-class CardImageTableViewCell: UITableViewCell {
+protocol CardImageTableViewCellDelegate: class {
+    func didFillCardImage(_ cardImage: UIImage)
+}
+
+class CardImageTableViewCell: UITableViewCell, UIPickerViewDelegate {
     
     @IBOutlet weak var cardImageView: UIImageView!
     
-    func setupImage(_ image: UIImage?) {
+    func setupImage(image: UIImage?) {
         cardImageView.image = image
     }
+    
+    
+    weak var delegate: CardImageTableViewCellDelegate?
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        delegate = nil
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        cardImageView.delegate = self
+    }
+    
+    func imageField(_ imageField: UIImage, shouldChangeCharactersIn range: NSRange, replacementString data: Data) -> Bool {
+        let image = (imageField as  NSData).replacingCharacters(in: range, with: data)
+        delegate?.didFillCardImage(image)
+        return true
+    }
+
+    
+    
+    
     
 }
