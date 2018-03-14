@@ -7,22 +7,44 @@
 //
 
 import UIKit
+import CoreData
 
 class CardsTableViewController: UITableViewController {
     
     var cards: [Card] = []
     
+    lazy var fetchedResultController: NSFetchedResultsController<CardEntity> = {
+        let fetchRequest: NSFetchRequest<CardEntity> = CardEntity.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "number", ascending: true)]
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataManager.shared.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        controller.delegate = self
+        return controller
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadSampleCards()
         title = "Your cards"
         let addCardButton = navigationItem.rightBarButtonItem
         addCardButton?.target = self
         addCardButton?.action = #selector(didTapAddCardButton(_:))
         
-        
         self.tableView.allowsSelection = true
-
+        
+        do {
+            try fetchedResultController.performFetch()
+        } catch {
+            let fetchError = error as NSError
+            print("\(fetchError), \(fetchError.userInfo)")
+        }
+        
+        let logoutButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(didTapLogoutButton(_:)))
+        navigationItem.leftBarButtonItem = logoutButton
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadSampleCards()
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,11 +55,11 @@ class CardsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return fetchedResultController.sections?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cards.count
+        return fetchedResultController.sections?[section].objects?.count ?? 0
     }
     
     
@@ -46,16 +68,22 @@ class CardsTableViewController: UITableViewController {
         // Configure the cell...
         let cellIdentifier = "CardTableViewCell"
         
+        guard let cardEntity = fetchedResultController.fetchedObjects?[indexPath.item] else {
+            fatalError("Invalid card fetched")
+        }
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CardTableViewCell else {
             fatalError("The dequed cell is not an instance of CardTableViewCell.")
         }
         
-        let card = cards[indexPath.row]
+        let card = mapCard(cardEntity)
         
         cell.cardName.text = card.name
         let numberX = String(card.number)
         cell.cardNr.text = numberX
-    
+        cell.cardImage.image = card.image
+       
+        
         
         return cell
     }
@@ -63,43 +91,79 @@ class CardsTableViewController: UITableViewController {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
         
-        
         let destination = EditCardTableViewController() // Your destination
         navigationController?.pushViewController(destination, animated: true)
         
     }
     
-    
-    
-    
     @objc private func didTapAddCardButton(_ sender: AnyObject) {
         guard let addCardController = storyboard?.instantiateViewController(withIdentifier: "SingleCardTableViewController") as? SingleCardTableViewController else { return }
-        addCardController.delegate = self
         let navigationController = UINavigationController(rootViewController: addCardController)
         present(navigationController, animated: true, completion: nil)
     }
     
+    @objc private func didTapLogoutButton(_ sender: AnyObject) {
+        
+        UserStore.shared.loggedUserName = nil
+
+        guard let logoutController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
+        let navigationController = UINavigationController(rootViewController: logoutController)
+        present(navigationController, animated: true, completion: nil)
+    }
     
+    private func mapCard(_ cardEntity: CardEntity) -> Card {
+        return Card(name: cardEntity.name!, number: String(cardEntity.number), image: UIImage(data: cardEntity.imageData!)!)
+    }
+    
+    // fetch cards for user named
     private func loadSampleCards() {
+        // core data fetch request
         
-        let card1 = Card(name:"Karta 1", number: "1")
+        let coreDataManager = CoreDataManager.shared
+        let availableCards = coreDataManager.fetchCard()
         
-        let card2 = Card(name:"Karta 2", number: "2")
+        let cards = availableCards.map(mapCard)
         
-        let card3 = Card(name:"Karta 3", number:"3")
+        self.cards = cards
+        self.tableView.reloadData()
         
-        let card4 = Card(name: "42", number: "373")
-        
-        cards += [card1, card2, card3, card4]
     }
     
 }
 
-extension CardsTableViewController: SingleCardTableViewControllerDelegate {
+extension CardsTableViewController: NSFetchedResultsControllerDelegate {
     
-    func didCreateCard(_ card: Card) {
-        cards.append(card)
-        tableView.reloadData()
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
     }
     
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch (type) {
+        case .insert:
+            if let indexPath = newIndexPath {
+                tableView.insertRows(at: [indexPath], with: .automatic)
+            }
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        case .update:
+            if let indexPath = indexPath {
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        case .move:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
+            }
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        }
+    }
+
 }

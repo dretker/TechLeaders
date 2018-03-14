@@ -8,17 +8,18 @@
 
 import UIKit
 
-class CardImageTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+
+class CardImageTableViewCell: UITableViewCell, UIPickerViewDelegate {
+    
+    @IBOutlet weak var cardImageView: UIImageView!
+    
+    func setupImage(image: UIImage?) {
+        cardImageView.image = image
     }
+    
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    
 
-        // Configure the view for the selected state
-    }
-
+    
 }

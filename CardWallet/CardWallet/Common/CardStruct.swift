@@ -7,16 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
 struct Card {
     
     let name: String
     let number: String
+    let image: UIImage
     
-    
-    init(name: String, number: String){
+    init(name: String, number: String, image: UIImage){
         self.name = name
         self.number = number
+        self.image = image
     }
     
 /*    init(name: String) {
