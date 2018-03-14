@@ -78,14 +78,14 @@ public class CoreDataManager {
         return false
     }
     
-    func saveCard(named: String, number: String, imageData: UIImage) {
+    func saveCard(named: String, number: String, imageData: Data?) {
         let context = persistentContainer.viewContext
         context.perform {
             let entity = NSEntityDescription.entity(forEntityName: "CardEntity", in: context)
             let card = CardEntity.init(entity: entity!, insertInto: context)
             card.name = named
             card.number = Int64(number) ?? Int64(UUID().hashValue)
-            card.imageData = UIImagePNGRepresentation(imageData)
+            card.imageData = imageData
             self.saveContext(context)
         }
     }

@@ -81,7 +81,7 @@ class CardsTableViewController: UITableViewController {
         cell.cardName.text = card.name
         let numberX = String(card.number)
         cell.cardNr.text = numberX
-        cell.cardImage = card.image
+        cell.cardImage.image = card.image
        
         
         

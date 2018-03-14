@@ -12,7 +12,7 @@ class CardTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cardName: UILabel!
     @IBOutlet weak var cardNr: UILabel!
-    @IBOutlet weak var cardImage: UIImage!
+    @IBOutlet weak var cardImage: UIImageView!
     
 
 }

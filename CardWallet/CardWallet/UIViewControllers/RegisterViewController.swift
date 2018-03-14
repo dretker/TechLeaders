@@ -15,7 +15,6 @@ class RegisterViewController: UIViewController {
         var userLogin: String?
         var userPassword: String?
         var email: String?
-        var cards: CardEntity? //NSSet?
     }
     
     var coreDataManager = CoreDataManager.shared
@@ -87,7 +86,6 @@ class RegisterViewController: UIViewController {
             newUser.userLogin = login.text
             newUser.userPassword = password.text
             newUser.email = email.text
-            newUser.cards = nil
             
             guard let userName = newUser.userLogin,
                 let userPassword = newUser.userPassword,
