@@ -10,19 +10,13 @@ import Foundation
 import CoreData
 import UIKit
 
-class UserStore {
-    
-    static let shared = UserStore()
-    
-    var loggedUserName: String?
-    
-    private init() {}
-
-}
-
 public class CoreDataManager {
     
     static let shared = CoreDataManager()
+    
+    var loggedUserName: String {
+        return UserStore.shared.loggedUserName
+    }
     
     private init() {}
     
@@ -78,6 +72,19 @@ public class CoreDataManager {
         return false
     }
     
+    
+    func fetchUser(named: String) -> UsereEntity? {
+        let context = persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<UsereEntity> = UsereEntity.fetchRequest()
+        let namePredicate = NSPredicate(format: "%K = %@", #keyPath(UsereEntity.name), named)
+        fetchRequest.predicate = namePredicate
+        if let result = try? context.fetch(fetchRequest) {
+            return result.first
+            //return result
+        }
+        return nil
+    }
+    
     func saveCard(named: String, number: String, imageData: Data?) {
         let context = persistentContainer.viewContext
         context.perform {
@@ -86,6 +93,7 @@ public class CoreDataManager {
             card.name = named
             card.number = Int64(number) ?? Int64(UUID().hashValue)
             card.imageData = imageData
+            card.owner = self.fetchUser(named: self.loggedUserName)
             self.saveContext(context)
         }
     }

@@ -14,7 +14,9 @@ class CardsTableViewController: UITableViewController {
     var cards: [Card] = []
     
     lazy var fetchedResultController: NSFetchedResultsController<CardEntity> = {
+        let predicate = NSPredicate(format: "%K = %@", #keyPath(CardEntity.owner.name), UserStore.shared.loggedUserName)
         let fetchRequest: NSFetchRequest<CardEntity> = CardEntity.fetchRequest()
+        fetchRequest.predicate = predicate
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "number", ascending: true)]
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: CoreDataManager.shared.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self
@@ -104,7 +106,7 @@ class CardsTableViewController: UITableViewController {
     
     @objc private func didTapLogoutButton(_ sender: AnyObject) {
         
-        UserStore.shared.loggedUserName = nil
+        UserStore.shared.logout() 
 
         guard let logoutController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
         let navigationController = UINavigationController(rootViewController: logoutController)

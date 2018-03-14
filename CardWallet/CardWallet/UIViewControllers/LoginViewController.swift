@@ -33,19 +33,17 @@ class LoginViewController: UIViewController {
         if(didFillLogin()){
         
             loginUser(userName: loginU.text!, password: passwordU.text!)
-        
-        guard let cardController = storyboard?.instantiateViewController(withIdentifier: "CardsTableViewController") as? CardsTableViewController else { return }
-        let navigationController = UINavigationController(rootViewController: cardController)
-        present(navigationController, animated: true, completion: nil)
-        
         }
     }
     
     
     func loginUser(userName: String, password: String) {
-        let coreDataManager = CoreDataManager.shared
-        if coreDataManager.fetchUser(named: userName, password: password) {
-            UserStore.shared.loggedUserName = userName
+        
+        let userStore = UserStore.shared
+        if userStore.login(userName: userName, password: password) {
+            guard let cardController = storyboard?.instantiateViewController(withIdentifier: "CardsTableViewController") as? CardsTableViewController else { return }
+            let navigationController = UINavigationController(rootViewController: cardController)
+            present(navigationController, animated: true, completion: nil)
             
         } else {
             
