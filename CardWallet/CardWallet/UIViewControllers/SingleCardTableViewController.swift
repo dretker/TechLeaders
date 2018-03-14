@@ -83,7 +83,7 @@ class SingleCardTableViewController: UITableViewController {
             
         case 4:
             cell = tableView.dequeueReusableCell(withIdentifier: "CardImageViewCell")
-
+            newCard.image.map{ (cell as? CardImageTableViewCell)?.setupImage(image: ($0))}
             return cell!
             
         case 5:

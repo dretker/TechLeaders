@@ -98,7 +98,7 @@ class RegisterViewController: UIViewController {
             
             
             //next VC
-            guard let loginController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
+            guard let loginController = storyboard?.instantiateViewController(withIdentifier: "CardsTableViewController") as? CardsTableViewController else { return }
             let navigationController = UINavigationController(rootViewController: loginController)
             present(navigationController, animated: true, completion: nil)        }
         
