@@ -95,7 +95,7 @@ class RegisterViewController: UIViewController {
                     return
             }
             coreDataManager.saveUser(login: userName, password: userPassword, email: userEmail)
-            
+            UserStore.shared.loggedUserName = userName
             
             //next VC
             guard let loginController = storyboard?.instantiateViewController(withIdentifier: "CardsTableViewController") as? CardsTableViewController else { return }
