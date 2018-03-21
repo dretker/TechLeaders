@@ -94,13 +94,16 @@ class RegisterViewController: UIViewController {
                     print("Saving users before filled all user info")
                     return
             }
-            coreDataManager.saveUser(login: userName, password: userPassword, email: userEmail)
-            UserStore.shared.loggedUserName = userName
+            let userStore = UserStore.shared
+            if userStore.register(userNamed: userName, password: userPassword, email: userEmail) {
+                let loginController = storyboard!.instantiateViewController(withIdentifier: "CardsTableViewController")
+                let navigationController = UINavigationController(rootViewController: loginController)
+                present(navigationController, animated: true, completion: nil)
+            } else {
+                // display alert
+            }
             
-            //next VC
-            guard let loginController = storyboard?.instantiateViewController(withIdentifier: "CardsTableViewController") as? CardsTableViewController else { return }
-            let navigationController = UINavigationController(rootViewController: loginController)
-            present(navigationController, animated: true, completion: nil)        }
+        }
         
     }
     

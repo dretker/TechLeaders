@@ -13,6 +13,7 @@ class UserStore {
     static let shared = UserStore()
     
     var loggedUserName: String
+    private var isGuestUser = true
     
     private init() {
         self.loggedUserName = UUID().uuidString
@@ -22,12 +23,29 @@ class UserStore {
         let coreDataManager = CoreDataManager.shared
         if coreDataManager.fetchUser(named: userName, password: password) {
             loggedUserName = userName
+            isGuestUser = false
             return true
         }
         return false
     }
+    // if account exists in db return false
+    func register(userNamed: String, password: String, email: String) -> Bool {
+        let coreDataManager = CoreDataManager.shared
+        coreDataManager.saveUser(login: userNamed, password: password, email: email)
+        loggedUserName = userNamed
+        return true
+    }
     
-    func logout(){
+    func loginGuest() {
+        // save user
+        // name = loggedUserName
+    }
+    
+    func logout() {
         loggedUserName = UUID().uuidString
+        if isGuestUser {
+            // core data -> delete user named loggedUserName
+            // coreData -> delete cards assigned to the loggedUserName // guest
+        }
     }
 }
